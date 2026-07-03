@@ -859,8 +859,21 @@
 
     // ========== REFRESH ==========
 
+    const OUTPUT_PLACEHOLDER_TEXT = "(Placeholder text)";
+
+    function resetOutputsToPlaceholder() {
+      patents_ta.value = OUTPUT_PLACEHOLDER_TEXT;
+      medline_ta.value = OUTPUT_PLACEHOLDER_TEXT;
+      embase_ta.value = OUTPUT_PLACEHOLDER_TEXT;
+      wpids_ta.value = OUTPUT_PLACEHOLDER_TEXT;
+    }
+
     function refreshOutputs() {
       const str = trn_ta.value;
+      if (!str.trim()) {
+        resetOutputsToPlaceholder();
+        return;
+      }
       patents_ta.value = "(\n" + extract_patents(str).join(",\n") + "\n)/pn";
       medline_ta.value = "(\n" + extract_medline(str).join(",\n") + "\n)/an@npl";
       embase_ta.value = "(\n" + extract_embase_pmid(str).join(",\n") + "\n)/an@npl";
@@ -872,10 +885,8 @@
 
     clearBtn.addEventListener("click", function () {
       trn_ta.value = "";
-      patents_ta.value = "";
-      medline_ta.value = "";
-      embase_ta.value = "";
-      wpids_ta.value = "";
+      resetOutputsToPlaceholder();
+      transcriptFileInput.value = "";
       fileStatus.textContent = "Accepts RTF or DOCX";
     });
 
@@ -1163,9 +1174,13 @@
     }
 
     async function loadTranscriptFromFile(file) {
-      const name = (file.name || '').toLowerCase();
-      if (name.endsWith('.rtf')) return extractRtfText(file);
-      if (name.endsWith('.docx')) return extractDocxText(file);
+      const name = (file && file.name ? file.name : '').toLowerCase();
+      if (name.endsWith('.rtf')) {
+        return extractRtfText(file);
+      }
+      if (name.endsWith('.docx')) {
+        return extractDocxText(file);
+      }
       throw new Error('Unsupported file type. Use RTF or DOCX');
     }
 
@@ -1174,12 +1189,16 @@
       if (!file) return;
       fileStatus.textContent = file.name;
       try {
-        trn_ta.value = await loadTranscriptFromFile(file);
+        const extracted = await loadTranscriptFromFile(file);
+        trn_ta.value = extracted;
         refreshOutputs();
         fileStatus.textContent = file.name + ' — loaded';
       } catch (err) {
         fileStatus.textContent = 'Could not load file';
-        alert('Could not extract transcript. ' + (err.message || err));
+        resetOutputsToPlaceholder();
+        alert('Could not extract the transcript from this file. ' + String(err && err.message ? err.message : err));
+      } finally {
+        transcriptFileInput.value = '';
       }
     });
 
