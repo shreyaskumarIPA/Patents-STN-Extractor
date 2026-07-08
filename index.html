@@ -238,8 +238,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
+      width: 46px;
       height: 32px;
+      padding: 0 12px;
       border-radius: var(--radius-pill);
       background: var(--charcoal);
       color: #fff;
@@ -471,97 +472,65 @@
     .site-footer {
       background: var(--charcoal);
       color: rgba(255,255,255,0.85);
-      padding: 36px var(--content-padding) 24px;
+      padding: 8px var(--content-padding) 10px;
       margin-top: 0;
     }
 
     .footer-inner {
       /* no max-width — aligns with about section via matching padding */
     }
-
-    .footer-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 14px;
-    }
-
-    .footer-acknowledgement {
-  font-size: 14px;
-  line-height: 1.65;
-  color: #FFFFFF;
-  margin-bottom: 16px;
-}
-
-    .footer-copyright {
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 0;
-    }
-
-    .footer-copyright a {
-      color: #FFFFFF;
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-
-    .footer-copyright a:hover { color: rgba(255,255,255,0.7); }
-
-    .footer-divider {
+.footer-divider {
       border: none;
       border-top: 1px solid rgba(255,255,255,0.12);
-      margin: 20px 0;
+      margin: 0 0 8px;
     }
 
     .footer-bottom {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+    .footer-support-row {
+      display: flex;
+      padding-top: 8px;
+      align-items: center;
+      justify-content: space-between;
       gap: 16px;
-      flex-wrap: wrap;
+      width: 100%;
     }
 
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      font-weight: 500;
-      color: #fff; 
-      text-decoration: underline;
-      text-underline-offset: 2px;
-      transition: color 0.15s ease;
-    }
-
-    .footer-links a:hover { color: rgba(255,255,255,0.7); }
-
-    .footer-social {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-social a {
+    .footer-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+      gap: 7px;
+      min-height: 32px;
+      padding: 6px 13px;
+      border-radius: var(--radius-pill);
       background: rgba(255,255,255,0.1);
       color: #fff;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
       text-decoration: none;
-      transition: background 0.15s ease;
+      white-space: nowrap;
     }
 
-    .footer-social a:hover { background: rgba(255,255,255,0.2); }
-    .footer-social svg { width: 14px; height: 14px; }
+    .footer-pill-contact:hover { background: rgba(255,255,255,0.2); }
 
-    /* ===== RESPONSIVE ===== */
+    .footer-pill svg { width: 14px; height: 14px; flex: 0 0 14px; }
+
+    .footer-pill-version {
+      color: rgba(255,255,255,0.88);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .footer-pill-version:hover { background: rgba(255,255,255,0.1); }
+/* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
       :root {
         --content-padding: 20px;
@@ -584,7 +553,8 @@
 }
 
     @media (max-width: 480px) {
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .footer-bottom { flex-direction: column; align-items: stretch; }
+      .footer-support-row { align-items: flex-start; }
       .picon-logo { height: 28px; width: 28px; }
     }
   </style>
@@ -732,38 +702,14 @@
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-title">IP Australia</div>
-      <p class="footer-acknowledgement">
-        IP Australia acknowledges the Aboriginal and Torres Strait Islander peoples of Australia. We acknowledge
-        the Traditional Custodians of the lands on which our agency is located and where we conduct our
-        business. We pay our respects to ancestors and Elders, past, present and emerging. IP Australia
-        acknowledges Australian Aboriginal and Torres Strait Islander peoples' unique cultural and spiritual
-        relationships to the land, waters and seas and their rich contribution to society.
-      </p>
-      <div class="footer-copyright"><a href="https://www.ipaustralia.gov.au/about-us/accountability-and-reporting/disclaimer" target="_blank" rel="noopener">© Commonwealth of Australia</a></div>
       <hr class="footer-divider" />
       <div class="footer-bottom">
-        <nav class="footer-links">
-          <a href="https://www.ipaustralia.gov.au/about-us/accountability-and-reporting/privacy" target="_blank" rel="noopener">Privacy</a>
-          <a href="https://www.ipaustralia.gov.au/about-us/accessibility" target="_blank" rel="noopener">Accessibility</a>
-          <a href="https://www.ipaustralia.gov.au/about-us/accountability-and-reporting/disclaimer" target="_blank" rel="noopener">Disclaimer</a>
-          <a href="https://www.ipaustralia.gov.au/about-us/accountability-and-reporting/security" target="_blank" rel="noopener">Security</a>
-          <a href="https://www.ipaustralia.gov.au/about-us/system-maintenance" target="_blank" rel="noopener">System maintenance</a>
-          <a href="https://www.ipaustralia.gov.au/sitemap" target="_blank" rel="noopener">Sitemap</a>
-        </nav>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/ipaustralia" target="_blank" rel="noopener" title="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        <div class="footer-support-row" aria-label="Tool support and version">
+          <a class="footer-pill footer-pill-contact" href="mailto:MDB-ITWG?subject=Patents%20STN%20extractor%20issue%20or%20feedback&amp;body=Please%20include%20details%20of%20the%20issue%20or%20feedback%3A%0A%0A" title="Contact MDB-ITWG for issues or feedback">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <span>Contact</span>
           </a>
-          <a href="https://www.instagram.com/ipaustralia/" target="_blank" rel="noopener" title="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/ip-australia" target="_blank" rel="noopener" title="LinkedIn">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://www.youtube.com/user/ipaustralia" target="_blank" rel="noopener" title="YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#1D252C"/></svg>
-          </a>
+          <span class="footer-pill footer-pill-version" title="Static tool version">Version 3.0.2</span>
         </div>
       </div>
     </div>
