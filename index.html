@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Patents STN Extractor</title>
+  <title>Patents STN extractor</title>
   <link rel="icon" type="image/png" href="./favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,6 +20,9 @@
       --text-secondary: #4A5568;
       --text-muted: #6B7280;
       --accent-yellow: #F0C846;
+      --patents-teal-accessible: #87CFDE;
+      --focus-ring: #005FCC;
+      --readable-line: 80ch;
       --radius-sm: 6px;
       --radius-md: 8px;
       --radius-pill: 999px;
@@ -54,20 +57,20 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  min-height: 52px;
+  min-height: 60px;
 }
 
 .header-logo {
-  height: 38px;
+  height: 45px;
   width: auto;
   display: block;
 }
 
 .header-divider {
-  width: 1px;
-  height: 28px;
-  background: rgba(255,255,255,0.15);
-  flex: 0 0 1px;
+  width: 2px;
+  height: 32px;
+  background: #87CFDE;
+  flex: 0 0 2px;
 }
 
 .header-tool-badge {
@@ -77,19 +80,12 @@
 }
 
 .header-picon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  border: 2px solid #30AEB6;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  font-weight: 700;
-  color: #30AEB6;
-  background: transparent;
-  flex: 0 0 30px;
-  letter-spacing: -0.2px;
+  flex: 0 0 32px;
 }
 
 .header-tool-text {
@@ -100,9 +96,9 @@
 }
 
 .header-tool-text .tool-line1 {
-  font-size: 12px;
-  font-weight: 600;
-  color: #30AEB6;
+  font-size: 14px;
+  font-weight: 700;
+  color: #87CFDE;
   letter-spacing: 0.01em;
 }
 
@@ -229,8 +225,8 @@
     }
 
     .input-label {
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 700;
       color: var(--text-primary);
     }
 
@@ -238,20 +234,23 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 46px;
-      height: 32px;
-      padding: 0 12px;
+      gap: 8px;
+      min-width: 150px;
+      min-height: 44px;
+      padding: 0 16px;
       border-radius: var(--radius-pill);
       background: var(--charcoal);
       color: #fff;
-      border: none;
+      border: 1.5px solid var(--charcoal);
       cursor: pointer;
+      font-family: var(--font-stack);
       transition: background 0.15s ease, transform 0.1s ease;
     }
 
     .upload-btn:hover { background: var(--charcoal-light); }
     .upload-btn:active { transform: scale(0.94); }
-    .upload-btn svg { width: 15px; height: 15px; }
+    .upload-btn svg { width: 18px; height: 18px; }
+    .upload-btn-text { font-size: 14px; font-weight: 700; }
 
     .upload-input {
       position: absolute;
@@ -272,8 +271,8 @@
       background: var(--white);
       resize: vertical;
       outline: none;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 13px;
+      font-family: var(--font-stack);
+      font-size: 14px;
       line-height: 1.25;
       color: var(--text-primary);
       white-space: pre;
@@ -367,13 +366,13 @@
     }
 
     .output-panel-title {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--text-primary);
     }
 
     .output-panel-subtitle {
-      font-size: 12px;
+      font-size: 14px;
       color: var(--text-muted);
       margin-top: 1px;
     }
@@ -381,12 +380,13 @@
     .copy-btn {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      padding: 4px 9px;
+      gap: 8px;
+      min-height: 42px;
+      padding: 10px 18px;
       border-radius: var(--radius-pill);
       font-family: var(--font-stack);
-      font-size: 12px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 700;
       color: var(--text-primary);
       background: var(--white);
       border: 1.5px solid var(--border-strong);
@@ -404,7 +404,7 @@
       color: #2E7D32;
     }
 
-    .copy-btn svg { width: 12px; height: 12px; }
+    .copy-btn svg { width: 16px; height: 16px; }
 
     .output-textarea {
       flex: 1 1 auto;
@@ -416,8 +416,8 @@
       background: var(--light-bg);
       resize: vertical;
       outline: none;
-      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-      font-size: 12.5px;
+      font-family: var(--font-stack);
+      font-size: 14px;
       line-height: 1.4;
       color: var(--text-primary);
     }
@@ -435,14 +435,16 @@
       margin-top: 28px;
     }
 
-    .about-inner {
-      position: relative;
-      padding-left: 24px;
-      border-left: 6px solid var(--accent-yellow);
+    .about-inner {  
+      position: relative;  
+      padding-left: 24px;  
+      border-left: 6px solid var(--patents-teal-accessible);  
+      max-width: 80ch;  
+      width: 100%;  
     }
 
     .about-title {
-      font-size: 23px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 16px;
@@ -479,11 +481,7 @@
     .footer-inner {
       /* no max-width — aligns with about section via matching padding */
     }
-.footer-divider {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      margin: 0 0 8px;
-    }
+.footer-divider { display:none; }
 
     .footer-bottom {
       display: flex;
@@ -547,11 +545,11 @@
       .split-divider { display: none; }
       .output-grid { grid-template-columns: 1fr; }
       .input-textarea { min-height: 280px; }
-      .page-title { font-size: 22px; }
+      .page-title { font-size: 26px; }
       .main-content {
-  padding: 20px var(--content-padding) 0;
-}
-
+        padding: 20px var(--content-padding) 0;
+      }
+    }
     @media (max-width: 480px) {
       .footer-bottom { flex-direction: column; align-items: stretch; }
       .footer-support-row { align-items: flex-start; }
@@ -560,6 +558,16 @@
   </style>
 </head>
 <body>
+  <!--
+  WCAG remediation applied from WCAG Conformance Tracker tab, using Finding / requirement column D and Recommended action column E.
+  A11Y-001: Increase the 'Patents' text size to 18.5px or larger, or use the lighter Patents colour tint #87CFDE. Also change the P Icon to an SVG with the colour as #87CFDE
+  A11Y-002: Review page typography and update any text styles below the recommended minimum sizes.
+  A11Y-003: Increase visual distinction between H1 and H2 to improve content hierarchy and scannability.
+  A11Y-004: Apply a maximum readable line width to all text areas, including bottom-page instructions.
+  A11Y-005: Update the upload button label or nearby supporting text to clearly state the required file type.
+  A11Y-006: Increase copy button text size and padding to improve readability and provide a larger interactive target.
+  A11Y-007: Apply a consistent visible focus indicator to every element that can receive keyboard focus.
+  -->
 
 <!-- ===== HEADER ===== -->
 <header class="site-header">
@@ -567,7 +575,12 @@
     <img class="header-logo" src="./IP Aust_inline_white_95pxhigh.png" alt="Australian Government - IP Australia" />
     <span class="header-divider"></span>
     <div class="header-tool-badge">
-      <div class="header-picon">P</div>
+      <div class="header-picon" aria-hidden="true">
+        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="#87CFDE" stroke-width="2.4"/>
+          <text x="16" y="21" text-anchor="middle" font-family="Public Sans, Arial, sans-serif" font-size="15" font-weight="800" fill="#87CFDE">P</text>
+        </svg>
+      </div>
       <div class="header-tool-text">
         <span class="tool-line1">Patents</span>
         <span class="tool-line2">STN extractor</span>
@@ -577,7 +590,7 @@
 </header>
 
   <!-- ===== MAIN ===== -->
-  <main class="main-content">
+  <main class="main-content" id="mainContent">
     <div class="page-header">
       <h1 class="page-title">Patents STN extractor</h1>
       <p class="page-subtitle">Convert your transcript into structured citations for use in different tools and databases.</p>
@@ -588,27 +601,33 @@
       <div class="split-pane input-pane" id="inputPane">
         <div class="input-panel">
           <div class="input-label-row">
-            <span class="input-label">Paste or upload transcript</span>
-            <label for="transcriptFileInput" class="upload-btn" title="Upload RTF or DOCX file">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <label class="input-label" for="trn_ta">Paste or upload transcript</label>
+            <button type="button" class="upload-btn" id="uploadBtn" title="Upload RTF or DOCX file" aria-describedby="fileStatus">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                 <polyline points="17 8 12 3 7 8"/>
                 <line x1="12" y1="3" x2="12" y2="15"/>
               </svg>
-            </label>
+              <span class="upload-btn-text">Upload RTF/DOCX</span>
+            </button>
             <input id="transcriptFileInput" class="upload-input" type="file" accept=".rtf,.docx,application/rtf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
           </div>
-          <textarea id="trn_ta" class="input-textarea" placeholder="Paste STN transcript here or upload a file..."></textarea>
+          <textarea id="trn_ta" class="input-textarea" placeholder="Paste STN transcript here or upload a file..." aria-describedby="fileStatus"></textarea>
           <span id="fileStatus" class="file-status">Accepts RTF or DOCX</span>
           <div class="action-row">
-            <button type="button" class="btn btn-primary" id="convertBtn">Convert</button>
-            <button type="button" class="btn btn-secondary" id="clearBtn">Clear all ✕</button>
+<button type="button" class="copy-btn" id="clearBtn" aria-label="Clear all content">
+                Clear all
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
           </div>
         </div>
       </div>
 
       <!-- DIVIDER -->
-      <div class="split-divider" id="splitDivider" title="Drag to resize. Double-click to reset.">
+      <div class="split-divider" id="splitDivider" title="Drag to resize. Double-click to reset." role="separator" aria-orientation="vertical" aria-label="Resize input and output panes" tabindex="0" aria-valuemin="20" aria-valuemax="75" aria-valuenow="38">
         <div class="divider-indicator" id="dividerIndicator"></div>
       </div>
 
@@ -622,12 +641,12 @@
                 <div class="output-panel-title">Patents-EPO AbS</div>
                 <div class="output-panel-subtitle">EPO ready</div>
               </div>
-              <button type="button" class="copy-btn" data-copy-target="patents_ta">
+              <button type="button" class="copy-btn" data-copy-target="patents_ta" aria-label="Copy Patents-EPO AbS output">
                 Copy
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               </button>
             </div>
-            <textarea id="patents_ta" class="output-textarea" placeholder="Placeholder text" readonly></textarea>
+            <textarea id="patents_ta" class="output-textarea" aria-label="Patents EPO AbS output" placeholder="Placeholder text" readonly></textarea>
           </div>
 
           <!-- Medline -->
@@ -637,12 +656,12 @@
                 <div class="output-panel-title">Medline</div>
                 <div class="output-panel-subtitle">NLM</div>
               </div>
-              <button type="button" class="copy-btn" data-copy-target="medline_ta">
+              <button type="button" class="copy-btn" data-copy-target="medline_ta" aria-label="Copy Medline output">
                 Copy
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               </button>
             </div>
-            <textarea id="medline_ta" class="output-textarea" placeholder="Placeholder text" readonly></textarea>
+            <textarea id="medline_ta" class="output-textarea" aria-label="Medline NLM output" placeholder="Placeholder text" readonly></textarea>
           </div>
 
           <!-- Embase -->
@@ -652,12 +671,12 @@
                 <div class="output-panel-title">Embase</div>
                 <div class="output-panel-subtitle">PMID</div>
               </div>
-              <button type="button" class="copy-btn" data-copy-target="embase_ta">
+              <button type="button" class="copy-btn" data-copy-target="embase_ta" aria-label="Copy Embase output">
                 Copy
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               </button>
             </div>
-            <textarea id="embase_ta" class="output-textarea" placeholder="Placeholder text" readonly></textarea>
+            <textarea id="embase_ta" class="output-textarea" aria-label="Embase PMID output" placeholder="Placeholder text" readonly></textarea>
           </div>
 
           <!-- WPIDS -->
@@ -667,12 +686,12 @@
                 <div class="output-panel-title">WPIDS</div>
                 <div class="output-panel-subtitle">AN</div>
               </div>
-              <button type="button" class="copy-btn" data-copy-target="wpids_ta">
+              <button type="button" class="copy-btn" data-copy-target="wpids_ta" aria-label="Copy WPIDS output">
                 Copy
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               </button>
             </div>
-            <textarea id="wpids_ta" class="output-textarea" placeholder="Placeholder text" readonly></textarea>
+            <textarea id="wpids_ta" class="output-textarea" aria-label="WPIDS accession number output" placeholder="Placeholder text" readonly></textarea>
           </div>
         </div>
       </div>
@@ -702,14 +721,14 @@
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <hr class="footer-divider" />
+      
       <div class="footer-bottom">
         <div class="footer-support-row" aria-label="Tool support and version">
           <a class="footer-pill footer-pill-contact" href="mailto:MDB-ITWG?subject=Patents%20STN%20extractor%20issue%20or%20feedback&amp;body=Please%20include%20details%20of%20the%20issue%20or%20feedback%3A%0A%0A" title="Contact MDB-ITWG for issues or feedback">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             <span>Contact</span>
           </a>
-          <span class="footer-pill footer-pill-version" title="Static tool version">Version 3.0.2</span>
+          <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.0.4</span>
         </div>
       </div>
     </div>
@@ -799,10 +818,13 @@
     const embase_ta = document.getElementById("embase_ta");
     const wpids_ta = document.getElementById("wpids_ta");
     const transcriptFileInput = document.getElementById("transcriptFileInput");
+    const uploadBtn = document.getElementById("uploadBtn");
     const fileStatus = document.getElementById("fileStatus");
-    const convertBtn = document.getElementById("convertBtn");
     const clearBtn = document.getElementById("clearBtn");
 
+    if (uploadBtn && transcriptFileInput) {
+      uploadBtn.addEventListener('click', function () { transcriptFileInput.click(); });
+    }
     // ========== REFRESH ==========
 
     const OUTPUT_PLACEHOLDER_TEXT = "(Placeholder text)";
@@ -827,7 +849,6 @@
     }
 
     trn_ta.addEventListener("input", refreshOutputs);
-    convertBtn.addEventListener("click", refreshOutputs);
 
     clearBtn.addEventListener("click", function () {
       trn_ta.value = "";
@@ -852,7 +873,9 @@
         window.getSelection().removeAllRanges();
       }
       const originalHTML = button.innerHTML;
+      button.dataset.originalLabel = button.getAttribute('aria-label') || '';
       button.innerHTML = 'Copied ✓';
+      button.setAttribute('aria-label', 'Copied to clipboard');
       button.classList.add('copied');
       setTimeout(function () {
         button.innerHTML = originalHTML;
@@ -890,6 +913,7 @@
         root.style.setProperty('--left-pane-width', clamped + 'px');
         const pct = total > 0 ? Math.round((clamped / total) * 100) : 38;
         indicator.textContent = pct + '%';
+        divider.setAttribute('aria-valuenow', String(pct));
       }
 
       function setDefault() {
@@ -943,6 +967,15 @@
       document.addEventListener('touchend', function () { stopDrag(); }, { passive: true });
 
       divider.addEventListener('dblclick', function () { setDefault(); });
+      divider.addEventListener('keydown', function (e) {
+        if (window.matchMedia && window.matchMedia('(max-width:900px)').matches) return;
+        const current = inputPane.getBoundingClientRect().width;
+        if (e.key === 'ArrowLeft') { e.preventDefault(); setLeftWidth(current - 24); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); setLeftWidth(current + 24); }
+        if (e.key === 'Home') { e.preventDefault(); setLeftWidth(MIN_LEFT); }
+        if (e.key === 'End') { e.preventDefault(); setLeftWidth(split.getBoundingClientRect().width - MIN_RIGHT - DIVIDER_TOTAL); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setDefault(); }
+      });
 
       window.addEventListener('resize', function () {
         if (window.matchMedia && window.matchMedia('(max-width:900px)').matches) return;
