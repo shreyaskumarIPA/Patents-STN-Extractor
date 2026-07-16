@@ -244,10 +244,19 @@
       border: 1.5px solid var(--charcoal);
       cursor: pointer;
       font-family: var(--font-stack);
-      transition: background 0.15s ease, transform 0.1s ease;
+      transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
     }
 
-    .upload-btn:hover { background: var(--charcoal-light); }
+    .upload-btn:hover {
+      background: var(--patents-teal-accessible);
+      color: var(--charcoal);
+      border-color: var(--patents-teal-accessible);
+    }
+    .upload-btn:focus-visible {
+      outline: 3px solid var(--patents-teal-accessible);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 1px var(--charcoal);
+    }
     .upload-btn:active { transform: scale(0.94); }
     .upload-btn svg { width: 18px; height: 18px; }
     .upload-btn-text { font-size: 14px; font-weight: 700; }
@@ -728,7 +737,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             <span>Contact</span>
           </a>
-          <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.0.4</span>
+          <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.0.5</span>
         </div>
       </div>
     </div>
