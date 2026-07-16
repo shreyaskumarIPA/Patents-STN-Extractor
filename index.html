@@ -737,7 +737,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             <span>Contact</span>
           </a>
-          <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.0.5</span>
+          <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.0.6</span>
         </div>
       </div>
     </div>
@@ -775,47 +775,109 @@
       return [...string.matchAll(regex)].map(e => '"' + e[1] + '"').sort();
     }
 
-    function US(cc, num, kind) {
-      if (kind !== undefined && kind[0] === "A" && num.length === 11) {
+
+
+
+
+
+function WO(cc, num, kind, level) {
+    if (num.length === 10) {
+        if (Number(num) < 2002051235) {
+            return cc + num.slice(2, 4) + num.slice(-5);
+        }
+
+        if (Number(num) < 2004000001) {
+            return cc + num.slice(2, 4) + num.slice(-6);
+        }
+    }
+
+    return cc + num;
+}
+
+
+
+function US(cc, num, kind, level) {
+    if (num.length === 11) {
         return cc + num.slice(0, 4) + num.slice(-6);
-      }
-      return cc + num + (kind ?? "");
     }
 
-    function KR(cc, num, kind) {
-      if (kind !== undefined && kind[0] === "A") {
-        return cc + num.slice(0, 4) + "0" + num.slice(4);
-      }
-      return cc + num + (kind ?? "");
+    if (num.length === 8 && num.startsWith("0")) {
+        return cc + num.slice(-7);
     }
 
-    function JP(cc, num, kind) {
-      if (kind !== undefined && kind[0] === "A") {
-        if (num.length === 10) return cc + num + kind;
-        return cc + "[S,H,]" + num + kind;
-      }
-      return cc + num;
+    return cc + num;
+}
+
+
+
+function JP(cc, num, kind, level) {
+    if (num.length === 8) {
+        const year = num.slice(0,2);
+        const n = Number(num.slice(2));
+        const era = (Number(num) < 12000000 ? "H" : "S");
+        const k = (kind === undefined || kind === "T" ? "" : kind);
+        return cc + era + year + n + k;
     }
 
-    function WO(cc, num, kind) {
-      const re = /(\d\d)(\d\d)0(\d+)/;
-      const match = re.exec(num);
-      if (match === null) return cc + num;
-      return cc + "[" + match[1] + ",]" + match[2] + "[0,]" + match[3];
+    return cc + num;
+}
+
+
+
+function AU(cc, num, kind, level) {
+    if (num.length === 10) {
+        if (num.startsWith("20000") || num.startsWith("20010")|| num.startsWith("20020")) {
+            const year = num.slice(2, 4);
+            const n = num.slice(5);
+            return "AU" + n + year;
+        }
     }
 
-    function ZA(cc, num, kind) {
-      const re = /(\d\d\d\d)0(\d+)/;
-      const match = re.exec(num);
-      if (match === null) return cc + num;
-      return cc + match[1] + match[2];
+    if (num.length === 7) {
+        const year = num.slice(0,2);
+        const n = num.slice(2);
+        return cc + n + year;
     }
 
-    const formatters = { JP, KR, US, WO, ZA };
+    return cc + num;
+}
+
+
+
+function KR(cc, num, kind, level) {
+    if (num.length === 10) {
+        const year = num.slice(0,4);
+        const n = num.slice(4);
+        return cc + year + "0" + n;
+    }
+    return cc + num;
+}
+
+
+
+function ZA(cc, num, kind, level) {
+    if (num.length === 10) {
+        const year = num.slice(0,4);
+        const n = num.slice(5);
+        return cc + year + n;
+    }
+
+    if (num.length === 7) {
+        const year = num.slice(0,2);
+        const n = num.slice(3);
+        return cc + year + Number(n);
+    }
+    return cc + num;
+}
+
+
+
+    const formatters = { AU, JP, KR, US, WO, ZA };
 
     function format(match) {
       const [all, cc, num, kind] = match;
-      if (formatters[cc] !== undefined) return formatters[cc](cc, num, kind);
+      const k = (typeof kind === "string" ? kind.slice(0, 1) : "");
+      if (formatters[cc] !== undefined) return formatters[cc](cc, num, k);
       return cc + num;
     }
 
