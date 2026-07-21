@@ -19,22 +19,16 @@
       --text-primary: #1D252C;
       --text-secondary: #4A5568;
       --text-muted: #6B7280;
-      --accent-yellow: #F0C846;
       --patents-teal-accessible: #87CFDE;
       --focus-ring: #005FCC;
-      --readable-line: 80ch;
-      --radius-sm: 6px;
       --radius-md: 8px;
       --radius-pill: 999px;
       --font-stack: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
       --left-pane-width: 38%;
       --content-padding: 80px;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; }
-
     body {
       font-family: var(--font-stack);
       font-size: 16px;
@@ -42,82 +36,63 @@
       color: var(--text-primary);
       background: var(--white);
     }
-
-/* ===== HEADER ===== */
-.site-header {
-  background: var(--charcoal-light);
-  padding: 0 var(--content-padding);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  min-height: 60px;
-}
-
-.header-logo {
-  height: 45px;
-  width: auto;
-  display: block;
-}
-
-.header-divider {
-  width: 2px;
-  height: 32px;
-  background: #87CFDE;
-  flex: 0 0 2px;
-}
-
-.header-tool-badge {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.header-picon {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 32px;
-}
-
-.header-tool-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  line-height: 1.2;
-}
-
-.header-tool-text .tool-line1 {
-  font-size: 14px;
-  font-weight: 700;
-  color: #87CFDE;
-  letter-spacing: 0.01em;
-}
-
-.header-tool-text .tool-line2 {
-  font-size: 14px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -0.01em;
-}
-
-    /* ===== MAIN ===== */
-    .main-content {
-  padding: 20px var(--content-padding) 0;
-}
-
-    .page-header {
-      margin-bottom: 16px;
+    .site-header {
+      background: var(--charcoal-light);
+      padding: 0 var(--content-padding);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
     }
-
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 60px;
+    }
+    .header-logo {
+      height: 45px;
+      width: auto;
+      display: block;
+    }
+    .header-divider {
+      width: 2px;
+      height: 32px;
+      background: #87CFDE;
+      flex: 0 0 2px;
+    }
+    .header-tool-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-picon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 32px;
+    }
+    .header-tool-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .header-tool-text .tool-line1 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #87CFDE;
+      letter-spacing: 0.01em;
+    }
+    .header-tool-text .tool-line2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+    .main-content { padding: 20px var(--content-padding) 0; }
+    .page-header { margin-bottom: 16px; }
     .page-title {
       font-size: 27px;
       font-weight: 700;
@@ -125,14 +100,11 @@
       margin-bottom: 4px;
       letter-spacing: -0.3px;
     }
-
     .page-subtitle {
       font-size: 15px;
       color: var(--text-secondary);
       font-weight: 400;
     }
-
-    /* ===== WORKSPACE SPLIT ===== */
     .workspace {
       display: flex;
       align-items: stretch;
@@ -140,24 +112,19 @@
       width: 100%;
       min-height: 520px;
     }
-
     .split-pane { min-width: 0; }
-
     .split-pane.input-pane {
       flex: 0 0 var(--left-pane-width);
       min-width: 260px;
       display: flex;
       flex-direction: column;
     }
-
     .split-pane.output-pane {
       flex: 1 1 auto;
       min-width: 320px;
       display: flex;
       flex-direction: column;
     }
-
-    /* Divider */
     .split-divider {
       position: relative;
       width: 10px;
@@ -171,11 +138,7 @@
       background: transparent;
       transition: background 0.12s ease;
     }
-
-    .split-divider:hover {
-      background: rgba(29,37,44,0.06);
-    }
-
+    .split-divider:hover { background: rgba(29,37,44,0.06); }
     .split-divider::after {
       content: "";
       position: absolute;
@@ -187,11 +150,7 @@
       background: var(--border);
       border-radius: 999px;
     }
-
-    .split-divider:hover::after {
-      background: var(--border-strong);
-    }
-
+    .split-divider:hover::after { background: var(--border-strong); }
     .divider-indicator {
       position: absolute;
       top: 8px;
@@ -208,28 +167,23 @@
       pointer-events: none;
       z-index: 2;
     }
-
-    /* ===== INPUT PANEL ===== */
     .input-panel {
       display: flex;
       flex-direction: column;
       gap: 8px;
       height: 100%;
     }
-
     .input-label-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 8px;
     }
-
     .input-label {
       font-size: 16px;
       font-weight: 700;
       color: var(--text-primary);
     }
-
     .upload-btn {
       display: inline-flex;
       align-items: center;
@@ -246,13 +200,14 @@
       font-family: var(--font-stack);
       transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
     }
-
     .upload-btn:hover {
       background: var(--patents-teal-accessible);
       color: var(--charcoal);
       border-color: var(--patents-teal-accessible);
     }
-    .upload-btn:focus-visible {
+    .upload-btn:focus-visible,
+    .copy-btn:focus-visible,
+    .split-divider:focus-visible {
       outline: 3px solid var(--patents-teal-accessible);
       outline-offset: 3px;
       box-shadow: 0 0 0 1px var(--charcoal);
@@ -260,7 +215,6 @@
     .upload-btn:active { transform: scale(0.94); }
     .upload-btn svg { width: 18px; height: 18px; }
     .upload-btn-text { font-size: 14px; font-weight: 700; }
-
     .upload-input {
       position: absolute;
       left: -9999px;
@@ -269,7 +223,6 @@
       opacity: 0;
       pointer-events: none;
     }
-
     .input-textarea {
       flex: 1 1 auto;
       width: 100%;
@@ -289,63 +242,25 @@
       tab-size: 8;
       transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
-
     .input-textarea:focus {
       border-color: var(--charcoal);
       box-shadow: 0 0 0 3px rgba(29,37,44,0.07);
     }
-
-    .input-textarea::placeholder {
+    .input-textarea::placeholder,
+    .output-textarea::placeholder {
       color: var(--text-muted);
       font-family: var(--font-stack);
     }
-
     .file-status {
       font-size: 12px;
       color: var(--text-muted);
     }
-
     .action-row {
       display: flex;
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
     }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 7px 16px;
-      border-radius: var(--radius-pill);
-      font-family: var(--font-stack);
-      font-size: 14px;
-      font-weight: 600;
-      line-height: 1.2;
-      cursor: pointer;
-      transition: background 0.14s ease, border-color 0.14s ease, transform 0.08s ease;
-      white-space: nowrap;
-      text-decoration: none;
-    }
-
-    .btn:active { transform: translateY(1px); }
-
-    .btn-primary {
-      background: var(--charcoal);
-      color: var(--white);
-      border: 1.5px solid var(--charcoal);
-    }
-    .btn-primary:hover { background: var(--charcoal-light); border-color: var(--charcoal-light); }
-
-    .btn-secondary {
-      background: var(--white);
-      color: var(--text-primary);
-      border: 1.5px solid var(--border-strong);
-    }
-    .btn-secondary:hover { background: var(--light-bg); }
-
-    /* ===== OUTPUT PANELS ===== */
     .output-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -353,7 +268,6 @@
       height: 100%;
       align-content: start;
     }
-
     .output-panel {
       display: flex;
       flex-direction: column;
@@ -363,29 +277,35 @@
       background: var(--white);
       min-height: 220px;
     }
-
     .output-panel-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 10px;
       padding: 8px 12px;
       border-bottom: 1px solid var(--border);
       background: var(--white);
       flex: 0 0 auto;
     }
-
+    .output-panel-head > div:first-child { min-width: 0; }
     .output-panel-title {
       font-size: 16px;
       font-weight: 700;
       color: var(--text-primary);
     }
-
     .output-panel-subtitle {
       font-size: 14px;
       color: var(--text-muted);
       margin-top: 1px;
     }
-
+    .copy-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      flex: 0 1 auto;
+      flex-wrap: wrap;
+    }
     .copy-btn {
       display: inline-flex;
       align-items: center;
@@ -402,19 +322,16 @@
       cursor: pointer;
       transition: background 0.14s ease, border-color 0.14s ease, transform 0.08s ease;
       line-height: 1.2;
+      white-space: nowrap;
     }
-
     .copy-btn:hover { background: var(--light-bg); border-color: var(--text-muted); }
     .copy-btn:active { transform: scale(0.95); }
-
     .copy-btn.copied {
       background: #E8F5E9;
       border-color: #66BB6A;
       color: #2E7D32;
     }
-
     .copy-btn svg { width: 16px; height: 16px; }
-
     .output-textarea {
       flex: 1 1 auto;
       width: 100%;
@@ -430,35 +347,24 @@
       line-height: 1.4;
       color: var(--text-primary);
     }
-
-    .output-textarea::placeholder {
-      color: var(--text-muted);
-      font-family: var(--font-stack);
-      font-style: italic;
-    }
-
-    /* ===== ABOUT SECTION ===== */
     .about-section {
       border-top: 1px solid var(--border);
       padding: 40px var(--content-padding);
       margin-top: 28px;
     }
-
-    .about-inner {  
-      position: relative;  
-      padding-left: 24px;  
-      border-left: 6px solid var(--patents-teal-accessible);  
-      max-width: 80ch;  
-      width: 100%;  
+    .about-inner {
+      position: relative;
+      padding-left: 24px;
+      border-left: 6px solid var(--patents-teal-accessible);
+      max-width: 80ch;
+      width: 100%;
     }
-
     .about-title {
       font-size: 20px;
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 16px;
     }
-
     .about-subtitle {
       font-size: 15px;
       font-weight: 700;
@@ -466,32 +372,22 @@
       margin-bottom: 8px;
       margin-top: 20px;
     }
-
     .about-list {
       margin: 0;
       padding-left: 20px;
     }
-
     .about-list li {
       margin-bottom: 6px;
       font-size: 15px;
       color: var(--text-secondary);
       line-height: 1.6;
     }
-
-    /* ===== FOOTER ===== */
     .site-footer {
       background: var(--charcoal);
       color: rgba(255,255,255,0.85);
       padding: 8px var(--content-padding) 10px;
       margin-top: 0;
     }
-
-    .footer-inner {
-      /* no max-width — aligns with about section via matching padding */
-    }
-.footer-divider { display:none; }
-
     .footer-bottom {
       display: flex;
       align-items: center;
@@ -507,7 +403,6 @@
       gap: 16px;
       width: 100%;
     }
-
     .footer-pill {
       display: inline-flex;
       align-items: center;
@@ -525,88 +420,56 @@
       text-decoration: none;
       white-space: nowrap;
     }
-
     .footer-pill-contact:hover { background: rgba(255,255,255,0.2); }
-
     .footer-pill svg { width: 14px; height: 14px; flex: 0 0 14px; }
-
     .footer-pill-version {
       color: rgba(255,255,255,0.88);
       cursor: default;
       pointer-events: none;
     }
-
-    .footer-pill-version:hover { background: rgba(255,255,255,0.1); }
-/* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      :root {
-        --content-padding: 20px;
-      }
-      .workspace {
-        flex-direction: column;
-        min-height: auto;
-      }
+      :root { --content-padding: 20px; }
+      .workspace { flex-direction: column; min-height: auto; }
       .split-pane.input-pane,
-      .split-pane.output-pane {
-        flex: 1 1 auto;
-        min-width: 0;
-      }
+      .split-pane.output-pane { flex: 1 1 auto; min-width: 0; }
       .split-divider { display: none; }
       .output-grid { grid-template-columns: 1fr; }
       .input-textarea { min-height: 280px; }
       .page-title { font-size: 26px; }
-      .main-content {
-        padding: 20px var(--content-padding) 0;
-      }
+      .main-content { padding: 20px var(--content-padding) 0; }
     }
     @media (max-width: 480px) {
       .footer-bottom { flex-direction: column; align-items: stretch; }
       .footer-support-row { align-items: flex-start; }
-      .picon-logo { height: 28px; width: 28px; }
+      .header-logo { height: 38px; }
     }
   </style>
 </head>
 <body>
-  <!--
-  WCAG remediation applied from WCAG Conformance Tracker tab, using Finding / requirement column D and Recommended action column E.
-  A11Y-001: Increase the 'Patents' text size to 18.5px or larger, or use the lighter Patents colour tint #87CFDE. Also change the P Icon to an SVG with the colour as #87CFDE
-  A11Y-002: Review page typography and update any text styles below the recommended minimum sizes.
-  A11Y-003: Increase visual distinction between H1 and H2 to improve content hierarchy and scannability.
-  A11Y-004: Apply a maximum readable line width to all text areas, including bottom-page instructions.
-  A11Y-005: Update the upload button label or nearby supporting text to clearly state the required file type.
-  A11Y-006: Increase copy button text size and padding to improve readability and provide a larger interactive target.
-  A11Y-007: Apply a consistent visible focus indicator to every element that can receive keyboard focus.
-  -->
-
-<!-- ===== HEADER ===== -->
-<header class="site-header">
-  <div class="header-inner">
-    <img class="header-logo" src="./IP Aust_inline_white_95pxhigh.png" alt="Australian Government - IP Australia" />
-    <span class="header-divider"></span>
-    <div class="header-tool-badge">
-      <div class="header-picon" aria-hidden="true">
-        <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" focusable="false">
-          <circle cx="16" cy="16" r="14" fill="none" stroke="#87CFDE" stroke-width="2.4"/>
-          <text x="16" y="21" text-anchor="middle" font-family="Public Sans, Arial, sans-serif" font-size="15" font-weight="800" fill="#87CFDE">P</text>
-        </svg>
-      </div>
-      <div class="header-tool-text">
-        <span class="tool-line1">Patents</span>
-        <span class="tool-line2">STN extractor</span>
+  <header class="site-header">
+    <div class="header-inner">
+      <img class="header-logo" src="./IP Aust_inline_white_95pxhigh.png" alt="Australian Government - IP Australia" />
+      <span class="header-divider"></span>
+      <div class="header-tool-badge">
+        <div class="header-picon" aria-hidden="true">
+          <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <circle cx="16" cy="16" r="14" fill="none" stroke="#87CFDE" stroke-width="2.4"/>
+            <text x="16" y="21" text-anchor="middle" font-family="Public Sans, Arial, sans-serif" font-size="15" font-weight="800" fill="#87CFDE">P</text>
+          </svg>
+        </div>
+        <div class="header-tool-text">
+          <span class="tool-line1">Patents</span>
+          <span class="tool-line2">STN extractor</span>
+        </div>
       </div>
     </div>
-  </div>
-</header>
-
-  <!-- ===== MAIN ===== -->
+  </header>
   <main class="main-content" id="mainContent">
     <div class="page-header">
       <h1 class="page-title">Patents STN extractor</h1>
       <p class="page-subtitle">Convert your transcript into structured citations for use in different tools and databases.</p>
     </div>
-
     <div class="workspace" id="workspace">
-      <!-- INPUT PANE -->
       <div class="split-pane input-pane" id="inputPane">
         <div class="input-panel">
           <div class="input-label-row">
@@ -624,81 +487,58 @@
           <textarea id="trn_ta" class="input-textarea" placeholder="Paste STN transcript here or upload a file..." aria-describedby="fileStatus"></textarea>
           <span id="fileStatus" class="file-status">Accepts RTF or DOCX</span>
           <div class="action-row">
-<button type="button" class="copy-btn" id="clearBtn" aria-label="Clear all content">
-                Clear all
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
+            <button type="button" class="copy-btn" id="clearBtn" aria-label="Clear all content">
+              Clear all
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
             </button>
           </div>
         </div>
       </div>
-
-      <!-- DIVIDER -->
       <div class="split-divider" id="splitDivider" title="Drag to resize. Double-click to reset." role="separator" aria-orientation="vertical" aria-label="Resize input and output panes" tabindex="0" aria-valuemin="20" aria-valuemax="75" aria-valuenow="38">
         <div class="divider-indicator" id="dividerIndicator"></div>
       </div>
-
-      <!-- OUTPUT PANE -->
       <div class="split-pane output-pane" id="outputPane">
         <div class="output-grid">
-          <!-- Patents -->
           <div class="output-panel">
             <div class="output-panel-head">
               <div>
                 <div class="output-panel-title">Patents-EPO AbS</div>
                 <div class="output-panel-subtitle">EPO ready</div>
               </div>
-              <button type="button" class="copy-btn" data-copy-target="patents_ta" aria-label="Copy Patents-EPO AbS output">
-                Copy
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              </button>
+              <div class="copy-actions" id="patents_copy_actions" data-copy-target="patents_ta" data-copy-label="Patents-EPO AbS"></div>
             </div>
             <textarea id="patents_ta" class="output-textarea" aria-label="Patents EPO AbS output" placeholder="Placeholder text" readonly></textarea>
           </div>
-
-          <!-- Medline -->
           <div class="output-panel">
             <div class="output-panel-head">
               <div>
                 <div class="output-panel-title">Medline</div>
                 <div class="output-panel-subtitle">NLM</div>
               </div>
-              <button type="button" class="copy-btn" data-copy-target="medline_ta" aria-label="Copy Medline output">
-                Copy
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              </button>
+              <div class="copy-actions" id="medline_copy_actions" data-copy-target="medline_ta" data-copy-label="Medline"></div>
             </div>
             <textarea id="medline_ta" class="output-textarea" aria-label="Medline NLM output" placeholder="Placeholder text" readonly></textarea>
           </div>
-
-          <!-- Embase -->
           <div class="output-panel">
             <div class="output-panel-head">
               <div>
                 <div class="output-panel-title">Embase</div>
                 <div class="output-panel-subtitle">PMID</div>
               </div>
-              <button type="button" class="copy-btn" data-copy-target="embase_ta" aria-label="Copy Embase output">
-                Copy
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              </button>
+              <div class="copy-actions" id="embase_copy_actions" data-copy-target="embase_ta" data-copy-label="Embase"></div>
             </div>
             <textarea id="embase_ta" class="output-textarea" aria-label="Embase PMID output" placeholder="Placeholder text" readonly></textarea>
           </div>
-
-          <!-- WPIDS -->
           <div class="output-panel">
             <div class="output-panel-head">
               <div>
                 <div class="output-panel-title">WPIDS</div>
                 <div class="output-panel-subtitle">AN</div>
               </div>
-              <button type="button" class="copy-btn" data-copy-target="wpids_ta" aria-label="Copy WPIDS output">
-                Copy
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              </button>
+              <div class="copy-actions" id="wpids_copy_actions" data-copy-target="wpids_ta" data-copy-label="WPIDS"></div>
             </div>
             <textarea id="wpids_ta" class="output-textarea" aria-label="WPIDS accession number output" placeholder="Placeholder text" readonly></textarea>
           </div>
@@ -706,8 +546,6 @@
       </div>
     </div>
   </main>
-
-  <!-- ===== ABOUT SECTION ===== -->
   <section class="about-section">
     <div class="about-inner">
       <h2 class="about-title">About this tool</h2>
@@ -722,42 +560,69 @@
       <ul class="about-list">
         <li>directly into the intended tool.</li>
         <li>results are de-duplicated and sorted for readability.</li>
-        <li>where each output panel includes a compact one-click copy to clipboard control.</li>
+        <li>if an output is split into 5000 character chunks, the panel shows Copy 1, Copy 2 and so on.</li>
       </ul>
     </div>
   </section>
-
-  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      
-      <div class="footer-bottom">
-        <div class="footer-support-row" aria-label="Tool support and version">
-          <a class="footer-pill footer-pill-contact" href="mailto:MDB-ITWG?subject=Patents%20STN%20extractor%20issue%20or%20feedback&amp;body=Please%20include%20details%20of%20the%20issue%20or%20feedback%3A%0A%0A" title="Contact MDB-ITWG for issues or feedback">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-            <span>Contact</span>
-          </a>
-          <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.0.6</span>
-        </div>
+    <div class="footer-bottom">
+      <div class="footer-support-row" aria-label="Tool support and version">
+        <a class="footer-pill footer-pill-contact" href="mailto:MDB-ITWG?subject=Patents%20STN%20extractor%20issue%20or%20feedback&amp;body=Please%20include%20details%20of%20the%20issue%20or%20feedback%3A%0A%0A" title="Contact MDB-ITWG for issues or feedback">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Contact</span>
+        </a>
+        <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.0.8</span>
       </div>
     </div>
   </footer>
-
-  <!-- ===== JAVASCRIPT ===== -->
   <script>
     "use strict";
 
-    // ========== EXTRACTION LOGIC (unchanged) ==========
+    // ========== EXTRACTION LOGIC ==========
+
+    function isUsablePatentNumber(value) {
+      return typeof value === "string" && value.length > 0 && !/NaN/i.test(value);
+    }
 
     function extract_patents(string) {
-      const validCC = '(?:AR|AT|AU|BR|CA|CN|DE|EP|ES|FI|GB|HK|IL|IN|IT|JP|KR|MX|US|WO|ZA)';
-      const CAplus_PI_field = new RegExp('^(?:PI|PIA|PN|PPPI|PSPI)? *(' + validCC + ') *(\\d{5,}) *([A-Z]\\d?)\\b', 'gmu');
-      const Registry_CN_field = new RegExp('PN: *(' + validCC + ') *(\\d{5,}) *([A-Z]\\d?)?\\b', 'gu');
-      const Registry_PNTE_field = new RegExp('\| *(' + validCC + ') *(\\d{5,}) *([A-Z]\\d?)?\\b', 'gu');
-      const a = [...string.matchAll(CAplus_PI_field)].map(format);
-      const b = [...string.matchAll(Registry_CN_field)].map(format);
-      const c = [...string.matchAll(Registry_PNTE_field)].map(format);
-      return [...new Set([...a, ...b, ...c])].sort();
+      // Aligned to the Bryce extractor patent matching logic, with a final guard so malformed values such as NaN never enter the AbS list.
+      const regex = /\b(?<!-)(AR|AT|AU|BR|CA|CN|DE|EP|ES|FI|FR|GB|HK|IL|IN|JP|KR|MX|NZ|PH|RU|SG|TH|TW|US|WO|ZA) *(\d{6,})(?: *([A-Z])(\d*))?\b/gsu;
+      const extracted = [...string.matchAll(regex)]
+        .map(m => format(m[1], m[2], m[3], m[4]))
+        .filter(isUsablePatentNumber);
+      return [...new Set(extracted)].sort();
+    }
+
+    function buildChunkedOutput(items, suffix, maxCharacters) {
+      const cleanItems = (Array.isArray(items) ? items : []).filter(function (item) {
+        return typeof item === "string" && item.length > 0 && !/NaN/i.test(item);
+      });
+      if (cleanItems.length === 0) {
+        const emptyText = "(\n\n)" + suffix;
+        return { text: emptyText, chunks: [emptyText] };
+      }
+      const limit = Number(maxCharacters) || 5000;
+      const chunks = [];
+      let current = [];
+      cleanItems.forEach(function (item) {
+        const candidate = current.concat([item]);
+        const candidateText = "(\n" + candidate.join(",\n") + "\n)" + suffix;
+        if (current.length > 0 && candidateText.length > limit) {
+          chunks.push(current);
+          current = [item];
+        } else {
+          current = candidate;
+        }
+      });
+      if (current.length > 0) chunks.push(current);
+      const textChunks = chunks.map(function (chunk) {
+        return "(\n" + chunk.join(",\n") + "\n)" + suffix;
+      });
+      return { text: textChunks.join("\n\n"), chunks: textChunks };
+    }
+
+    function buildChunkedPatentAbsOutput(patentNumbers, maxCharacters) {
+      return buildChunkedOutput(patentNumbers, "/pn", maxCharacters).text;
     }
 
     function extract_medline(string) {
@@ -775,109 +640,75 @@
       return [...string.matchAll(regex)].map(e => '"' + e[1] + '"').sort();
     }
 
-
-
-
-
-
-function WO(cc, num, kind, level) {
-    if (num.length === 10) {
-        if (Number(num) < 2002051235) {
-            return cc + num.slice(2, 4) + num.slice(-5);
-        }
-
-        if (Number(num) < 2004000001) {
-            return cc + num.slice(2, 4) + num.slice(-6);
-        }
+    function WO(cc, num, kind, level) {
+      if (num.length === 10) {
+        if (Number(num) < 2002051235) return cc + num.slice(2, 4) + num.slice(-5);
+        if (Number(num) < 2004000001) return cc + num.slice(2, 4) + num.slice(-6);
+      }
+      return cc + num;
     }
 
-    return cc + num;
-}
-
-
-
-function US(cc, num, kind, level) {
-    if (num.length === 11) {
-        return cc + num.slice(0, 4) + num.slice(-6);
+    function US(cc, num, kind, level) {
+      if (num.length === 11) return cc + num.slice(0, 4) + num.slice(-6);
+      if (num.length === 8 && num.startsWith("0")) return cc + num.slice(-7);
+      return cc + num;
     }
 
-    if (num.length === 8 && num.startsWith("0")) {
-        return cc + num.slice(-7);
-    }
-
-    return cc + num;
-}
-
-
-
-function JP(cc, num, kind, level) {
-    if (num.length === 8) {
-        const year = num.slice(0,2);
+    function JP(cc, num, kind, level) {
+      if (num.length === 8) {
+        const year = num.slice(0, 2);
         const n = Number(num.slice(2));
         const era = (Number(num) < 12000000 ? "H" : "S");
         const k = (kind === undefined || kind === "T" ? "" : kind);
         return cc + era + year + n + k;
+      }
+      return cc + num;
     }
 
-    return cc + num;
-}
-
-
-
-function AU(cc, num, kind, level) {
-    if (num.length === 10) {
-        if (num.startsWith("20000") || num.startsWith("20010")|| num.startsWith("20020")) {
-            const year = num.slice(2, 4);
-            const n = num.slice(5);
-            return "AU" + n + year;
+    function AU(cc, num, kind, level) {
+      if (num.length === 10) {
+        if (num.startsWith("20000") || num.startsWith("20010") || num.startsWith("20020")) {
+          const year = num.slice(2, 4);
+          const n = num.slice(5);
+          return "AU" + n + year;
         }
-    }
-
-    if (num.length === 7) {
-        const year = num.slice(0,2);
+      }
+      if (num.length === 7) {
+        const year = num.slice(0, 2);
         const n = num.slice(2);
         return cc + n + year;
+      }
+      return cc + num;
     }
 
-    return cc + num;
-}
-
-
-
-function KR(cc, num, kind, level) {
-    if (num.length === 10) {
-        const year = num.slice(0,4);
+    function KR(cc, num, kind, level) {
+      if (num.length === 10) {
+        const year = num.slice(0, 4);
         const n = num.slice(4);
         return cc + year + "0" + n;
+      }
+      return cc + num;
     }
-    return cc + num;
-}
 
-
-
-function ZA(cc, num, kind, level) {
-    if (num.length === 10) {
-        const year = num.slice(0,4);
+    function ZA(cc, num, kind, level) {
+      if (num.length === 10) {
+        const year = num.slice(0, 4);
         const n = num.slice(5);
         return cc + year + n;
-    }
-
-    if (num.length === 7) {
-        const year = num.slice(0,2);
+      }
+      if (num.length === 7) {
+        const year = num.slice(0, 2);
         const n = num.slice(3);
         return cc + year + Number(n);
+      }
+      return cc + num;
     }
-    return cc + num;
-}
-
-
 
     const formatters = { AU, JP, KR, US, WO, ZA };
 
-    function format(match) {
-      const [all, cc, num, kind] = match;
+    function format(cc, num, kind, level) {
       const k = (typeof kind === "string" ? kind.slice(0, 1) : "");
-      if (formatters[cc] !== undefined) return formatters[cc](cc, num, k);
+      if (formatters[cc] !== undefined) return formatters[cc](cc, num, k, level);
       return cc + num;
     }
 
@@ -892,19 +723,87 @@ function ZA(cc, num, kind, level) {
     const uploadBtn = document.getElementById("uploadBtn");
     const fileStatus = document.getElementById("fileStatus");
     const clearBtn = document.getElementById("clearBtn");
+    const outputChunks = {};
+    const COPY_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
 
     if (uploadBtn && transcriptFileInput) {
       uploadBtn.addEventListener('click', function () { transcriptFileInput.click(); });
     }
+
+    // ========== COPY BUTTONS ==========
+
+    function getOutputLabel(id) {
+      const container = document.querySelector('[data-copy-target="' + id + '"]');
+      return container ? (container.getAttribute('data-copy-label') || 'output') : 'output';
+    }
+
+    function renderCopyButtons(id, chunks) {
+      const container = document.querySelector('[data-copy-target="' + id + '"]');
+      if (!container) return;
+      outputChunks[id] = Array.isArray(chunks) && chunks.length ? chunks.slice() : [document.getElementById(id).value || ''];
+      const label = getOutputLabel(id);
+      const buttonCount = outputChunks[id].length;
+      container.innerHTML = '';
+      outputChunks[id].forEach(function (_chunk, index) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'copy-btn';
+        button.setAttribute('data-copy-target', id);
+        button.setAttribute('data-copy-index', String(index));
+        button.setAttribute('aria-label', buttonCount > 1 ? 'Copy ' + label + ' output chunk ' + (index + 1) : 'Copy ' + label + ' output');
+        button.innerHTML = (buttonCount > 1 ? 'Copy ' + (index + 1) : 'Copy') + ' ' + COPY_ICON;
+        button.addEventListener('click', function () {
+          copyTextFrom(id, button, index);
+        });
+        container.appendChild(button);
+      });
+    }
+
+    async function copyTextFrom(id, button, chunkIndex) {
+      const target = document.getElementById(id);
+      if (!target) return;
+      const availableChunks = outputChunks[id] || [target.value || ''];
+      const useIndex = typeof chunkIndex === 'number' ? chunkIndex : 0;
+      const text = availableChunks[useIndex] || target.value || '';
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (err) {
+        const originalValue = target.value;
+        target.removeAttribute('readonly');
+        target.value = text;
+        target.select();
+        document.execCommand('copy');
+        target.value = originalValue;
+        target.setAttribute('readonly', 'readonly');
+        window.getSelection().removeAllRanges();
+      }
+      const originalHTML = button.innerHTML;
+      const originalLabel = button.getAttribute('aria-label') || '';
+      button.innerHTML = 'Copied ✓';
+      button.setAttribute('aria-label', 'Copied to clipboard');
+      button.classList.add('copied');
+      setTimeout(function () {
+        button.innerHTML = originalHTML;
+        button.setAttribute('aria-label', originalLabel);
+        button.classList.remove('copied');
+      }, 1400);
+    }
+
     // ========== REFRESH ==========
 
     const OUTPUT_PLACEHOLDER_TEXT = "(Placeholder text)";
 
+    function setOutput(id, textarea, result) {
+      textarea.value = result.text;
+      renderCopyButtons(id, result.chunks);
+    }
+
     function resetOutputsToPlaceholder() {
-      patents_ta.value = OUTPUT_PLACEHOLDER_TEXT;
-      medline_ta.value = OUTPUT_PLACEHOLDER_TEXT;
-      embase_ta.value = OUTPUT_PLACEHOLDER_TEXT;
-      wpids_ta.value = OUTPUT_PLACEHOLDER_TEXT;
+      const placeholder = { text: OUTPUT_PLACEHOLDER_TEXT, chunks: [OUTPUT_PLACEHOLDER_TEXT] };
+      setOutput('patents_ta', patents_ta, placeholder);
+      setOutput('medline_ta', medline_ta, placeholder);
+      setOutput('embase_ta', embase_ta, placeholder);
+      setOutput('wpids_ta', wpids_ta, placeholder);
     }
 
     function refreshOutputs() {
@@ -913,10 +812,10 @@ function ZA(cc, num, kind, level) {
         resetOutputsToPlaceholder();
         return;
       }
-      patents_ta.value = "(\n" + extract_patents(str).join(",\n") + "\n)/pn";
-      medline_ta.value = "(\n" + extract_medline(str).join(",\n") + "\n)/an@npl";
-      embase_ta.value = "(\n" + extract_embase_pmid(str).join(",\n") + "\n)/an@npl";
-      wpids_ta.value = "(\n" + extract_wpids(str).join(",\n") + "\n)/an@wpi";
+      setOutput('patents_ta', patents_ta, buildChunkedOutput(extract_patents(str), '/pn', 5000));
+      setOutput('medline_ta', medline_ta, buildChunkedOutput(extract_medline(str), '/an@npl', 5000));
+      setOutput('embase_ta', embase_ta, buildChunkedOutput(extract_embase_pmid(str), '/an@npl', 5000));
+      setOutput('wpids_ta', wpids_ta, buildChunkedOutput(extract_wpids(str), '/an@wpi', 5000));
     }
 
     trn_ta.addEventListener("input", refreshOutputs);
@@ -928,38 +827,6 @@ function ZA(cc, num, kind, level) {
       fileStatus.textContent = "Accepts RTF or DOCX";
     });
 
-    // ========== COPY ==========
-
-    async function copyTextFrom(id, button) {
-      const target = document.getElementById(id);
-      if (!target) return;
-      const text = target.value || "";
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (err) {
-        target.removeAttribute('readonly');
-        target.select();
-        document.execCommand('copy');
-        target.setAttribute('readonly', 'readonly');
-        window.getSelection().removeAllRanges();
-      }
-      const originalHTML = button.innerHTML;
-      button.dataset.originalLabel = button.getAttribute('aria-label') || '';
-      button.innerHTML = 'Copied ✓';
-      button.setAttribute('aria-label', 'Copied to clipboard');
-      button.classList.add('copied');
-      setTimeout(function () {
-        button.innerHTML = originalHTML;
-        button.classList.remove('copied');
-      }, 1400);
-    }
-
-    document.querySelectorAll('[data-copy-target]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        copyTextFrom(btn.getAttribute('data-copy-target'), btn);
-      });
-    });
-
     // ========== SPLIT DIVIDER ==========
 
     (function initSplitControls() {
@@ -969,7 +836,6 @@ function ZA(cc, num, kind, level) {
       const indicator = document.getElementById('dividerIndicator');
       const inputPane = document.getElementById('inputPane');
       if (!split || !divider || !indicator || !inputPane) return;
-
       const MIN_LEFT = 260;
       const MIN_RIGHT = 320;
       const DIVIDER_TOTAL = 18;
@@ -1020,23 +886,18 @@ function ZA(cc, num, kind, level) {
         e.preventDefault();
         startDrag(e.clientX);
       });
-
       document.addEventListener('mousemove', function (e) { moveDrag(e.clientX); });
       document.addEventListener('mouseup', function () { stopDrag(); });
-
       divider.addEventListener('touchstart', function (e) {
         if (window.matchMedia && window.matchMedia('(max-width:900px)').matches) return;
         if (!e.touches || !e.touches.length) return;
         startDrag(e.touches[0].clientX);
       }, { passive: true });
-
       document.addEventListener('touchmove', function (e) {
         if (!dragging || !e.touches || !e.touches.length) return;
         moveDrag(e.touches[0].clientX);
       }, { passive: true });
-
       document.addEventListener('touchend', function () { stopDrag(); }, { passive: true });
-
       divider.addEventListener('dblclick', function () { setDefault(); });
       divider.addEventListener('keydown', function (e) {
         if (window.matchMedia && window.matchMedia('(max-width:900px)').matches) return;
@@ -1047,12 +908,10 @@ function ZA(cc, num, kind, level) {
         if (e.key === 'End') { e.preventDefault(); setLeftWidth(split.getBoundingClientRect().width - MIN_RIGHT - DIVIDER_TOTAL); }
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setDefault(); }
       });
-
       window.addEventListener('resize', function () {
         if (window.matchMedia && window.matchMedia('(max-width:900px)').matches) return;
         setLeftWidth(inputPane.getBoundingClientRect().width);
       });
-
       setDefault();
     })();
 
@@ -1109,7 +968,7 @@ function ZA(cc, num, kind, level) {
           if (next === '*') { afterBackslashAsterisk = true; i++; continue; }
           if (next === '\n' || next === '\r') { i++; continue; }
           if (next === "'") {
-            const hex = src.slice(i+1, i+3);
+            const hex = src.slice(i + 1, i + 3);
             if (/^[0-9a-fA-F]{2}$/.test(hex)) {
               if (pendingSkip > 0) pendingSkip--; else if (currentVisible()) out.push(cp1252CharFromHex(hex));
               i += 3; continue;
@@ -1225,12 +1084,8 @@ function ZA(cc, num, kind, level) {
 
     async function loadTranscriptFromFile(file) {
       const name = (file && file.name ? file.name : '').toLowerCase();
-      if (name.endsWith('.rtf')) {
-        return extractRtfText(file);
-      }
-      if (name.endsWith('.docx')) {
-        return extractDocxText(file);
-      }
+      if (name.endsWith('.rtf')) return extractRtfText(file);
+      if (name.endsWith('.docx')) return extractDocxText(file);
       throw new Error('Unsupported file type. Use RTF or DOCX');
     }
 
@@ -1242,7 +1097,7 @@ function ZA(cc, num, kind, level) {
         const extracted = await loadTranscriptFromFile(file);
         trn_ta.value = extracted;
         refreshOutputs();
-        fileStatus.textContent = file.name + ' — loaded';
+        fileStatus.textContent = file.name + ' loaded';
       } catch (err) {
         fileStatus.textContent = 'Could not load file';
         resetOutputsToPlaceholder();
