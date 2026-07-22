@@ -571,7 +571,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           <span>Contact</span>
         </a>
-        <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.0.8</span>
+        <span class="footer-pill footer-pill-version" title="Static tool version">Version 4.1.0</span>
       </div>
     </div>
   </footer>
@@ -649,7 +649,7 @@
     }
 
     function US(cc, num, kind, level) {
-      if (num.length === 11) return cc + num.slice(0, 4) + num.slice(-6);
+      if (num.length === 11 && Number(num) < 20260000001) return cc + num.slice(0, 4) + num.slice(-6);
       if (num.length === 8 && num.startsWith("0")) return cc + num.slice(-7);
       return cc + num;
     }
